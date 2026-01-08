@@ -14,6 +14,11 @@ def divide(x, y):
         return "Error! Division by zero."
     return x / y
 
+def modulus(x, y):
+    if y == 0:
+        return "Error! Division by zero."
+    return x % y
+
 def calculator():
     print("Simple Calculator")
     print("Select operation:")
@@ -21,11 +26,12 @@ def calculator():
     print("2. Subtract")
     print("3. Multiply")
     print("4. Divide")
+    print("5. Modulus")
 
     while True:
-        choice = input("Enter choice (1/2/3/4): ")
+        choice = input("Enter choice (1/2/3/4/5): ")
 
-        if choice in ('1', '2', '3', '4'):
+        if choice in ('1', '2', '3', '4', '5'):
             num1 = float(input("Enter first number: "))
             num2 = float(input("Enter second number: "))
 
@@ -37,6 +43,8 @@ def calculator():
                 print(f"{num1} * {num2} = {multiply(num1, num2)}")
             elif choice == '4':
                 print(f"{num1} / {num2} = {divide(num1, num2)}")
+            elif choice == '5':
+                print(f"{num1} % {num2} = {modulus(num1, num2)}")
         else:
             print("Invalid Input!")
 
