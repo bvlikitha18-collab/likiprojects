@@ -1,11 +1,20 @@
 import sys
 
-# ... keep your add, subtract, etc. functions the same ...
+# 1. Define all functions FIRST
+def add(x, y): return x + y
+def subtract(x, y): return x - y
+def multiply(x, y): return x * y
+def divide(x, y):
+    if y == 0: return "Error! Division by zero."
+    return x / y
+def modulus(x, y):
+    if y == 0: return "Error! Division by zero."
+    return x % y
 
+# 2. The main logic
 def calculator():
-    # Jenkins will pass these values as arguments
     if len(sys.argv) < 4:
-        print("Usage: python calculator.py <choice> <num1> <num2>")
+        print("Usage: python proj1.py <choice> <num1> <num2>")
         return
 
     choice = sys.argv[1]
