@@ -1,57 +1,29 @@
-# Simple Calculator in Python
+import sys
 
-def add(x, y):
-    return x + y
-
-def subtract(x, y):
-    return x - y
-
-def multiply(x, y):
-    return x * y
-
-def divide(x, y):
-    if y == 0:
-        return "Error! Division by zero."
-    return x / y
-
-def modulus(x, y):
-    if y == 0:
-        return "Error! Division by zero."
-    return x % y
+# ... keep your add, subtract, etc. functions the same ...
 
 def calculator():
-    print("Simple Calculator")
-    print("Select operation:")
-    print("1. Add")
-    print("2. Subtract")
-    print("3. Multiply")
-    print("4. Divide")
-    print("5. Modulus")
+    # Jenkins will pass these values as arguments
+    if len(sys.argv) < 4:
+        print("Usage: python calculator.py <choice> <num1> <num2>")
+        return
 
-    while True:
-        choice = input("Enter choice (1/2/3/4/5): ")
+    choice = sys.argv[1]
+    num1 = float(sys.argv[2])
+    num2 = float(sys.argv[3])
 
-        if choice in ('1', '2', '3', '4', '5'):
-            num1 = float(input("Enter first number: "))
-            num2 = float(input("Enter second number: "))
+    if choice == '1':
+        print(f"Result: {add(num1, num2)}")
+    elif choice == '2':
+        print(f"Result: {subtract(num1, num2)}")
+    elif choice == '3':
+        print(f"Result: {multiply(num1, num2)}")
+    elif choice == '4':
+        print(f"Result: {divide(num1, num2)}")
+    elif choice == '5':
+        print(f"Result: {modulus(num1, num2)}")
+    else:
+        print("Invalid choice!")
 
-            if choice == '1':
-                print(f"{num1} + {num2} = {add(num1, num2)}")
-            elif choice == '2':
-                print(f"{num1} - {num2} = {subtract(num1, num2)}")
-            elif choice == '3':
-                print(f"{num1} * {num2} = {multiply(num1, num2)}")
-            elif choice == '4':
-                print(f"{num1} / {num2} = {divide(num1, num2)}")
-            elif choice == '5':
-                print(f"{num1} % {num2} = {modulus(num1, num2)}")
-        else:
-            print("Invalid Input!")
-
-        # Ask if user wants another calculation
-        next_calc = input("Do you want another calculation? (yes/no): ").lower()
-        if next_calc != 'yes':
-            break
-
-# Run the calculator
-calculator()
+if __name__ == "__main__":
+    calculator()
